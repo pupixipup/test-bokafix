@@ -26,7 +26,7 @@ function Map() {
   const [visitedPlaces, setVisitedPlaces] = useState<string[]>([]);
   const { isLoaded } = useLoadScript( {
     googleMapsApiKey: "AIzaSyANzx1HF-2J9wd5FBeNY4yv0PQfBhJraIQ"
-    // Insert API key here
+    // Insert API key here (Or you can use mine, I don't mind)
   });
 
   function updatePlaces(newCenter: google.maps.LatLngLiteral) {
@@ -34,7 +34,6 @@ function Map() {
         .then((data) =>  data.json())
         .then((json: ILocationResponse) => {
           const newPlace = json.plus_code.compound_code || json.plus_code.global_code;
-          console.log(json);
           if (!visitedPlaces.includes(newPlace)) {
             setVisitedPlaces([...visitedPlaces, newPlace]);
           }
@@ -66,7 +65,7 @@ function Map() {
 
   useEffect(() => {
   updatePlaces(manualCenter as google.maps.LatLngLiteral);
-  }, [manualCenter]);
+  }, [manualCenter, updatePlaces]);
 
   return isLoaded ? (
     <div className='map'>
@@ -97,7 +96,6 @@ function Map() {
       </h4>
       </div>
       <div className="map__places">
-        
       {visitedPlaces.map((place, index) => {
         return(
           <div className='map__places-item' key={`${place}-${index}`}>{place}</div>
