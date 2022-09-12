@@ -17,7 +17,7 @@ function Map() {
   const [center, setCenter] = useState<google.maps.LatLngLiteral>(initialLocation);
   const [mapRef, setMapRef] = useState<MapProp>(null);
   const { isLoaded } = useLoadScript( {
-    googleMapsApiKey: "AIzaSyC9Uo2nW7gUCxz6bMQaCqS2Png6FQN2hlQ"
+    googleMapsApiKey: ""
     // Insert API key here
   });
 
