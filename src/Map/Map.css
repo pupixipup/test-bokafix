@@ -1,0 +1,67 @@
+.map {
+ padding: 30px 85px;
+ background-color: #C5C5C5;
+ position: relative;
+}
+
+.mapContainer {
+  width: 598px;
+  height: 461px;
+}
+
+.map__title {
+  text-align: center;
+  margin: 0 0 25px 0;
+}
+
+.map__position {
+  text-align: center;
+  color: white;
+  margin: 0;
+  margin-top: 25px;
+}
+
+.map__btns {
+  height: 45px;
+  position: absolute;
+  bottom: 18%;
+  margin-left: auto; 
+  margin-right: auto; 
+  left: 0;
+  right: 0;
+  width: 350px;
+  gap: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.map__btn {
+  max-width: 140px;
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 600;
+font-size: 13px;
+line-height: 15px;
+text-align: center;
+color: #FFFFFF;
+border: none;
+cursor: pointer;
+transition: .3s;
+}
+
+.map__btn:hover {
+  transition: .3s;
+  opacity: .7;
+}
+
+.btn-purple {
+  background-color: #9A2EEF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+.btn-blue {
+  background: #2EC1EF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
