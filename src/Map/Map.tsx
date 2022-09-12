@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Map.css';
 import { GoogleMap, useLoadScript } from '@react-google-maps/api';
 
@@ -28,6 +28,22 @@ function Map() {
     }
   };
 
+  const successCallback = (position: GeolocationPosition) => {
+    setManualCenter(({
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    } 
+    ));
+  };
+
+  const errorCallback = (error: GeolocationPositionError) => {
+    alert('Please, turn on your location');
+  };
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+  }, []);
+
   return isLoaded ? (
     <div className='map'>
       <h3 className='map__title'>Map project</h3>
@@ -47,17 +63,7 @@ function Map() {
         setZoom(6);
       }} className="map__btn btn-blue">Teleport me to somewhere random</button>
       <button onClick={() => {
-          const successCallback = (position: GeolocationPosition) => {
-            setManualCenter(({
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            } 
-            ));
-          };
           setZoom(11);
-          const errorCallback = (error: GeolocationPositionError) => {
-            console.log(error);
-          };
           navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
       }} className="map__btn btn-purple">Bring me back home</button>
       </div>
