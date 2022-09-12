@@ -65,7 +65,7 @@ function Map() {
 
   useEffect(() => {
   updatePlaces(manualCenter as google.maps.LatLngLiteral);
-  }, [manualCenter, updatePlaces]);
+  }, [manualCenter]);
 
   return isLoaded ? (
     <div className='map'>
